@@ -1,0 +1,11 @@
+
+learning25
+backend -- cmd -- npm init --y
+code .
+
+    app.js
+
+javascript  run --client side
+javascript server side render -- node js -> runtime js
+
+node js -- express -->api target
