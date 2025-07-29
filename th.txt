@@ -9,3 +9,45 @@ javascript  run --client side
 javascript server side render -- node js -> runtime js
 
 node js -- express -->api target
+
+npm i nodemon -g
+
+web server
+express module
+api creation
+
+MERN:
+
+e express : module : middleware fwork
+n node js : run time js -- node
+
+web application :- inst,fb,netflix, hotstar
+
+client -- user -> request --> web server --->response..
+webserver --> web application deployed
+
+php - xamp wamp
+java -- apache tomcat
+.net - isserver
+
+-------------
+python
+node express 
+
+3rd party servers.. 
+server creation
+
+web server:
+
+node-js - http module server
+express -- server -- api create req,res 
+
+react api consumer :fronetend 
+api producers --> backend tech
+
+GET : -- db -- dat fetch fe..
+POST: ft tech --data -- datasbe store..
+PUT : update
+DELETE : deltee..
+PATCH :partial 
+
