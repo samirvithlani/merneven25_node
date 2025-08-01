@@ -106,6 +106,30 @@ app.get("/employee/:id",(req,res)=>{
 })
 
 
+app.get("/employeebygender/:gender",(req,res)=>{
+
+    const gender = req.params.gender;
+
+    const foundEmployees = employees.filter((emp)=>emp.gender == gender)
+    if(foundEmployees && foundEmployees.length >0){
+        res.json({
+            message:"employee fouind with criteria",
+            data:foundEmployees
+        })
+    }
+    else{
+        res.json({
+            message:"employees not found with given criteria",
+            data:[]
+        })
+    }
+
+})
+
+app.get("/employees1",(req,res)=>{
+    console.log(req.query)
+})
+
 //server..
 const PORT = 3000
 app.listen(PORT,()=>{
