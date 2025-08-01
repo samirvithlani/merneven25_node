@@ -54,7 +54,56 @@ app.get("/users",(req,res)=>{
 })
 
 
+var employees = [
+    {
+        id:101,
+        name:"ram",
+        age:23,
+        salary:23000,
+        gender:"male"
+    },
+    {
+        id:102,
+        name:"seeta",
+        age:23,
+        salary:25000,
+        gender:"female"
+    },
+    {
+        id:103,
+        name:"shyam",
+        age:25,
+        salary:30000,
+        gender:"male"
+    }
+]
 
+//localhost:3000/employees
+app.get("/employees",(req,res)=>{
+    res.json({
+        message:"employee fatchedd.",
+        data:employees
+    })
+})
+
+//find employee by id
+app.get("/employee/:id",(req,res)=>{
+
+//    console.log(req.params.id) //{id:}
+    const foundEmployee = employees.find((emp)=>emp.id == req.params.id)
+    if(foundEmployee){
+        res.json({
+            message:"employee found!",
+            data:foundEmployee
+        })
+    }
+    else{
+        res.json({
+            message:"employee not found with given id",
+            data:null
+        })
+    }
+})
 
 
 //server..
