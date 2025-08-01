@@ -127,7 +127,28 @@ app.get("/employeebygender/:gender",(req,res)=>{
 })
 
 app.get("/employees1",(req,res)=>{
-    console.log(req.query)
+    
+    const{name,age} =req.query
+    if(name ==undefined || age == undefined){
+        res.json({
+            message:"req params are not passed.."
+        })
+    }
+    else{
+        const foundEmployee = employees.filter((emp)=>emp.age == age && emp.name == name)
+        if(foundEmployee){
+            res.json({
+                message:"employee found with criteria",
+                data:foundEmployee
+            })
+        }
+        else{
+            res.json({
+                message:"employee not found with criteria",
+                data:[]
+            })
+        }
+    }
 })
 
 //server..
