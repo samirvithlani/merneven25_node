@@ -3,19 +3,11 @@ const mongoose = require("mongoose")
 //expres object..
 const app = express() //
 
-//nosql -->mongodb --mongoose
+//routes
+const userRoutes = require("./routes/UserRoutes")
+app.use(userRoutes) //server app // routes
 
-//required usermodel
-const userSchema = require("./models/UserModel")
 
-app.get("/users",async(req,res)=>{
-    //db.users.find()
-    //db.users == userSchema
-    const users = await userSchema.find()
-    res.json({
-        data:users
-    })
-})
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/mern_evn_2_node").then(()=>{

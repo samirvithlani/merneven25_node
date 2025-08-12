@@ -203,3 +203,35 @@ app.get("/employees1",(req,res)=>{
 
 mongoose ORM frmaewarok :
 
+
+//nosql -->mongodb --mongoose
+
+//required usermodel
+const userSchema = require("./models/UserModel")
+
+app.get("/users",async(req,res)=>{
+    //db.users.find()
+    //db.users == userSchema
+    const users = await userSchema.find()
+    res.json({
+        data:users
+    })
+})
+app.get("/user/:id",async(req,res)=>{
+    const foundUser = await userSchema.findById(req.params.id)
+    if(foundUser){
+        res.json({
+            message:"user found",
+            data:foundUser
+        })
+    }
+    else{
+        res.json({
+            message:"user not found.."
+        })
+    }
+})
+
+
+folder structure:
+server --app --> Routes File Load -->Controllers --> Functino --api
