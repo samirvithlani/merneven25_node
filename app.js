@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 //expres object..
 const app = express() //
+app.use(express.json()) //application/json -- type
 
 //routes
 const userRoutes = require("./routes/UserRoutes")

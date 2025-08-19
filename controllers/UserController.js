@@ -37,7 +37,18 @@ const getUserById = async(req,res)=>{
 
 }
 
+const addUser=async(req,res)=>{
+    //db.users.create(req.body)
+    //userModel.create(req.body)
+    const savedUser = await userModel.create(req.body)
+    res.json({
+        message:"user saved successfully !!",
+        data:savedUser
+    })
+}
+
 module.exports = {
     getAllUsers,
-    getUserById
+    getUserById,
+    addUser
 }
