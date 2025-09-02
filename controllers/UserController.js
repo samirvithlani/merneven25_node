@@ -3,7 +3,8 @@ const userModel = require("../models/UserModel");
 //function
 
 const getAllUsers = async (req, res) => {
-  const users = await userModel.find(); //[]
+  //const users = await userModel.find(); //[]
+  const users = await userModel.find().populate("roleId"); //[] task
   if (users && users.length > 0) {
     res.json({
       message: "user fateched successfully!!",

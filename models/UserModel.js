@@ -15,6 +15,10 @@ const userSchema = new Schema({
   bloodGroup:{
     enum:["A+","A-","B+","B-","O+","O-"],
     type:String
+  },
+  roleId:{
+    type:Schema.Types.ObjectId,
+    ref:"role"
   }
 });
 

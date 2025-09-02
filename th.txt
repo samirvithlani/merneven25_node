@@ -235,3 +235,11 @@ app.get("/user/:id",async(req,res)=>{
 
 folder structure:
 server --app --> Routes File Load -->Controllers --> Functino --api
+
+SQL Foreign KEY:
+
+2 collection realtion
+
+SQL: table:
+user
+id name email age.. rId[fk]ref role table

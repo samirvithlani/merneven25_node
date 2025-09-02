@@ -8,6 +8,10 @@ app.use(express.json()) //application/json -- type
 const userRoutes = require("./routes/UserRoutes")
 app.use(userRoutes) //server app // routes
 
+//localhost:3000/role/role - post ,get
+const roleRoutes = require("./routes/RoleRoutes")
+app.use("/role",roleRoutes)
+
 
 
 
