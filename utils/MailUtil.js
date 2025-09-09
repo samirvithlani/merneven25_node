@@ -9,7 +9,7 @@ const mailsend = async(to,subject,text)=>{
         service:"gmail",
         auth:{
             user:"pythonforsamir@gmail.com",
-            pass:"zzdr mlhm vqnd pwva"
+            pass:"enter your pass"
         }
     })
 
