@@ -243,3 +243,6 @@ SQL Foreign KEY:
 SQL: table:
 user
 id name email age.. rId[fk]ref role table
+
+nodemailer
+zzdr mlhm vqnd pwva

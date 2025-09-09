@@ -19,6 +19,9 @@ const userSchema = new Schema({
   roleId:{
     type:Schema.Types.ObjectId,
     ref:"role"
+  },
+  email:{
+    type:String
   }
 });
 
