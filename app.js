@@ -12,6 +12,8 @@ app.use(userRoutes) //server app // routes
 const roleRoutes = require("./routes/RoleRoutes")
 app.use("/role",roleRoutes)
 
+const employeeroutes = require("./routes/EmployeeRoutes")
+app.use("/emp",employeeroutes)
 
 
 
