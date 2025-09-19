@@ -61,9 +61,23 @@ const updateEmployee = async(req,res)=>{
 
 
 }
+
+const addHobby = async(req,res)=>{
+
+    const id = req.params.id
+    console.log(id)
+    const hobby = req.body.hobby;
+    console.log(hobby)
+    const updatedEmp = await employeeModel.findByIdAndUpdate(id,{$push:{hobbies:req.body.hobby}},{new:true})
+    res.json({
+        message:"hobby added",
+        data:updatedEmp
+    })
+}
 module.exports = {
   getAllEmployees,
   createEmployee,
   deleteEmployee,
-  updateEmployee
+  updateEmployee,
+  addHobby
 };
