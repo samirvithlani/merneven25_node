@@ -4,6 +4,7 @@ const Schema = mongoose.Schema; //schema -->datbase -collectoin bind..
 const userSchema = new Schema({
   name: {
     type: String,
+    required:true
   },
   age: {
     type: Number,

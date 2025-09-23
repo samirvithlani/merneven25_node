@@ -49,7 +49,7 @@ const addUser = async (req, res) => {
   const savedUser = await userModel.create(req.body);
     //mailUtil.sen...(savedUser.email,"subject","subject")
 
-  res.json({
+  res.status(201).json({
     message: "user saved successfully !!",
     data: savedUser,
   });
