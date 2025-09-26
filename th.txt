@@ -248,3 +248,18 @@ nodemailer
 zzdr mlhm vqnd pwva
 
 middleware...
+
+file uploading...
+1 location -->2 location copy --[prog]
+3 place store:
+
+1)database : limited space : optimized : file:
+2)server   : space : costly : secure
+3)cloud    : lot space cheape, less secure
+
+----------------------------------------------
+API : form data text,array,number, boolean : json
+    : file files : binery data :        :no json -> form-data
+
+multer:
+npm i multer    

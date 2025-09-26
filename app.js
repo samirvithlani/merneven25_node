@@ -15,6 +15,9 @@ app.use("/role",roleRoutes)
 const employeeroutes = require("./routes/EmployeeRoutes")
 app.use("/emp",employeeroutes)
 
+const uploadRoutes = require("./routes/UploadRoutes")
+app.use("/upload",uploadRoutes)
+
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/mern_evn_2_node").then(()=>{
