@@ -265,3 +265,5 @@ multer:
 npm i multer    
 
 cloundinary:
+
+uploadMiddleware. 

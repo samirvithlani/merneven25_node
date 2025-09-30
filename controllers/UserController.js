@@ -48,6 +48,7 @@ const addUser = async (req, res) => {
   try{
   const savedUser = await userModel.create(req.body);
     //mailUtil.sen...(savedUser.email,"subject","subject")
+    //file path ..cloudinary..secure_url:db-->profilpic
 
   res.status(201).json({
     message: "user saved successfully !!",
