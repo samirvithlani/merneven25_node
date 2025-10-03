@@ -1,5 +1,6 @@
 const userModel = require("../models/UserModel");
 const mailutil = require("../utils/MailUtil")
+const bcrypt = require("bcrypt")
 //function
 
 const getAllUsers = async (req, res) => {
@@ -46,7 +47,12 @@ const addUser = async (req, res) => {
   //db.users.create(req.body)
   //userModel.create(req.body)
   try{
-  const savedUser = await userModel.create(req.body);
+    //password encrypt:
+    //10 -->salt round --> hash..
+    const hashedPassword = bcrypt.hashSync(req.body.password,10)
+
+  //const savedUser = await userModel.create(req.body);
+  const savedUser = await userModel.create({...req.body,password:hashedPassword});
     //mailUtil.sen...(savedUser.email,"subject","subject")
     //file path ..cloudinary..secure_url:db-->profilpic
 
@@ -130,11 +136,41 @@ const addNewHobby = async(req,res)=>{
 
 }
 
+//fb --> email -->password[haashes] ==>plain passwors
+const loginUser = async(req,res)=>{
+
+  const {email,password} = req.body; //password -- >plain password
+  const foundUserFromEmail = await userModel.findOne({email:email})
+  //{password:"hashedpassword.."}
+  if(foundUserFromEmail){
+    //(password --plain password--req.body,hashedpassword -->db)
+    //sam ---samlsanasjknlkasnkjasnasklnslkanm -- true
+    if(bcrypt.compareSync(password,foundUserFromEmail.password)){
+      res.status(200).json({
+        message:"user login sucess",
+        data:foundUserFromEmail
+      })
+    }
+    else{
+      res.status(401).json({
+        message:"invalid credentials",
+      })
+    }
+
+  }
+  else{
+    res.status(404).json({
+      message:"user not found..register first.."
+    })
+  }
+
+}
 module.exports = {
   getAllUsers,
   getUserById,
   addUser,
   deleteUser,
   updateUser,
-  addNewHobby
+  addNewHobby,
+  loginUser
 };
