@@ -14,4 +14,5 @@ router.delete("/user/:id",userController.deleteUser)
 router.put("/user/:id",userController.updateUser)
 router.put("/addhobby/:id",userController.addNewHobby)
 router.post("/login",userController.loginUser)
+router.post("/userfromtoken",userController.getUserFromToken)
 module.exports = router

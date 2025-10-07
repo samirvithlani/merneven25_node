@@ -267,3 +267,7 @@ npm i multer
 cloundinary:
 
 uploadMiddleware. 
+
+auth:
+outh2 module part
+jsonweb token jwt
