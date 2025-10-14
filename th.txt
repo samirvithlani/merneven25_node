@@ -271,3 +271,15 @@ uploadMiddleware.
 auth:
 outh2 module part
 jsonweb token jwt
+
+WEB PAGE: email password
+
+api secure:
+cloundinary:api key secret:
+
+google api :
+
+
+global middleware : all api apply --
+hint : app.js -->problem -> login secure -> token
+exclue some apis ---> login.. register..
