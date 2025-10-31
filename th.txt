@@ -275,7 +275,7 @@ jsonweb token jwt
 WEB PAGE: email password
 
 api secure:
-cloundinary:api key secret:
+cloundinary:api key secret: forgotpassword -->click-->
 
 google api :
 
@@ -283,3 +283,32 @@ google api :
 global middleware : all api apply --
 hint : app.js -->problem -> login secure -> token
 exclue some apis ---> login.. register..
+
+folder structure
+model schema monggose
+array
+enum
+images
+api creation
+mail
+multer file uploading
+jwt token
+auth: bcrypt : password encrypt
+login: 
+token generation
+auth middleware    
+------------------------------------------
+ForgotPassword module:
+API:
+1)forgot password api
+
+    FE:email-->samir@gmail.com -->DB -->if user existe-->
+        mailsern ---> token[email --> db-->user obj --> id token --> email token]
+
+
+                                                                --->if not --> register first                
+
+POST:- req.body -- email
+
+
+2)reset password api
