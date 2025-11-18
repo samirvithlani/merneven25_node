@@ -310,5 +310,31 @@ API:
 
 POST:- req.body -- email
 
+react:- ForgotPassword --> form --> email --> post api call-> //backend,,user mail...
+
 
 2)reset password api
+
+POST:
+d:{token,password}
+Logic: token --verify --> {id:"Object...",...} --> console.log()
+hashed password here..
+
+userModel.findByIdandUpdate(id,{password:hashedPassword})
+
+
+
+
+
+diff domain/ port --> 5173 -- 3000 CORS disabled
+cross origin resource sharing..
+Enable:
+
+npm i cors
+add in app.js
+
+cron jobs
+npm i cron
+
+automation
+
