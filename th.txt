@@ -338,3 +338,28 @@ npm i cron
 
 automation
 
+JobMOdel:
+
+jobid: randmon
+name : "test"+1
+time :
+
+create job which will insert     record in job table at every 30 seconds
+create job which will delete last     record from job table at every 40 seconds
+
+API --> url -> url     : slow
+SOCKET:network network : fast
+
+server[50] --> onnected -->as host -->50
+
+socket.io package
+socket.io-client
+
+socket -->express support
+
+http-->
+
+
+all socket prog part works only with events
+
+

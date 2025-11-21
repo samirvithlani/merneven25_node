@@ -1,11 +1,45 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require('cors')
-const cron = require("node-cron")
+const cron = require("node-cron") //c
 //expres object..
-const app = express() //
-app.use(express.json()) //application/json -- type
-app.use(cors())
+const app = express() // c
+
+const http = require("http") //builtin   //c
+const server = http.createServer(app) //object... of http.. //c
+const {Server} = require("socket.io") //Server class //c
+app.use(express.json()) //application/json -- type //c
+app.use(cors()) //c
+
+
+
+
+
+//socket server...
+const io = new Server(server,{
+    cors:{
+        origin:"*", //all port are whitelisted..
+        methods:["GET","POST"]
+
+    }
+})
+
+//connection is builtin event.. server hit..
+io.on('connection',(socket)=>{
+    console.log("new user connected... with id ",socket.id)
+
+    socket.on("test",(data)=>{
+        console.log("data...",data)
+    })
+
+    socket.on("demo",(data)=>{
+        console.log("demo called...",data)
+    })
+
+
+})
+
+
 
 //routes
 const userRoutes = require("./routes/UserRoutes")
@@ -19,6 +53,7 @@ const employeeroutes = require("./routes/EmployeeRoutes")
 app.use("/emp",employeeroutes)
 
 const uploadRoutes = require("./routes/UploadRoutes")
+const { da } = require("zod/locales")
 app.use("/upload",uploadRoutes)
 
 
@@ -52,13 +87,14 @@ console.log("db connected..")
 
 
 
-cron.schedule("*/10 * * * * *",()=>{
-    console.log("job runs at every 10 seconds")
-})
+// cron.schedule("*/10 * * * * *",()=>{
+//     console.log("job runs at every 10 seconds")
+// })
 
 
 //server..
 const PORT = 3000
-app.listen(PORT,()=>{
+
+server.listen(PORT,()=>{
     console.log(`server started on port ${PORT}`)
 })
