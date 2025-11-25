@@ -27,13 +27,17 @@ const io = new Server(server,{
 //connection is builtin event.. server hit..
 io.on('connection',(socket)=>{
     console.log("new user connected... with id ",socket.id)
-
     socket.on("test",(data)=>{
         console.log("data...",data)
     })
-
     socket.on("demo",(data)=>{
         console.log("demo called...",data)
+    })
+
+    socket.on('message',(data)=>{
+        console.log("message -->",data)
+        //socket.emit("receiveMessage",data.toUpperCase())
+        socket.broadcast.emit("receiveMessage",data.toUpperCase())
     })
 
 
