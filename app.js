@@ -4,14 +4,33 @@ const cors = require('cors')
 const cron = require("node-cron") //c
 //expres object..
 const app = express() // c
-
 const http = require("http") //builtin   //c
 const server = http.createServer(app) //object... of http.. //c
 const {Server} = require("socket.io") //Server class //c
 app.use(express.json()) //application/json -- type //c
 app.use(cors()) //c
 
+const Redis = require("ioredis")
+const {Queue} = require("bullmq")
 
+
+//redis connection...
+const redisConnection = new Redis({
+    host:"127.0.0.1",
+    port:6379
+})
+
+//queue.
+const myQueue = new Queue("taskQueue",{connection:redisConnection})
+
+app.post("/add-job",async(req,res)=>{
+
+    const {name} = req.body;
+    await myQueue.add("task",{name},{delay:0})
+    res.json({
+        message:"job added for" + name
+    })
+})
 
 
 

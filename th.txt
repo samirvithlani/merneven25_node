@@ -362,4 +362,15 @@ http-->
 
 all socket prog part works only with events
 
+redis server..
+queue : rabbit apache kafaka
+
+broker : db --> data -->queue perform...
+
+D..sir -->ok -->pallvi -->batchname ->
+
+redis server-->linux -->wsl service --> ubuntu -->redis
+npm i ioredis
+npm i bullmq
+
 
