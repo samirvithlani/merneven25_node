@@ -114,8 +114,48 @@ console.log("db connected..")
 //     console.log("job runs at every 10 seconds")
 // })
 
-
 //server..
+
+const fakeData = {
+    1:{name:"raj",age:23},
+    2:{name:"jay",age:23},
+    3:{name:"amit",age:23},
+    4:{name:"parth",age:23}
+}
+
+
+//global middeware
+const cacheMiddleware = async(req,res,next)=>{
+
+    const{userId} = req.params;
+    try{
+        const cacheData = await redisConnection.get(userId)
+        if(cacheData){
+            console.log("cache hit...")
+            return res.json(JSON.parse(cacheData))
+        }
+        else{
+            console.log("cache miss..")
+            next()
+        }
+    }catch(err){
+        console.log("redis err..")
+        next()
+    }
+
+}
+app.get("/cuser/:userId",cacheMiddleware,(req,res)=>{
+
+    const{userId} = req.params;
+    const userData = fakeData[userId] //db user.findById
+    //store data in cacheMemory
+    redisConnection.setex(userId,6000,JSON.stringify(userData))
+    return res.json(userData)
+
+})
+
+
+
 const PORT = 3000
 
 server.listen(PORT,()=>{

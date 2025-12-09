@@ -374,3 +374,14 @@ npm i ioredis
 npm i bullmq
 
 
+--------------------------------------------------------
+wroker : queue redis
+socket
+auth module : frontend + backend
+------------------------------------------------------------
+dfulllstack project:
+defination submit:
+project management defiantion:
+
+
+
